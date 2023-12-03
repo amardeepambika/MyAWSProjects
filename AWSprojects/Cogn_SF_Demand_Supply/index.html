@@ -9,6 +9,7 @@
         color: #FFFFFF;
         font-family: system-ui;
 		margin-left: 20px;
+        text-align: center;
         }
 	body {
         background-color: #222629;
@@ -26,19 +27,34 @@
 		color: #FFFFFF;
         font-family: system-ui;
         font-size: 20px;
-		font-weight: bold;
-        margin-left: 30px;
+        text-align: center;
+		margin-left: 20px;
 		margin-top: 20px;
-		width: 140px;
+		width: 160px;
+        height: 32px;
+        align-content: center;
         }
 	 input {
         color: #222629;
         font-family: system-ui;
         font-size: 20px;
-        margin-left: 10px;
+        margin-left: 20px;
 		margin-top: 20px;
 		width: 100px;
         }
+
+    input[type=file] {
+        background-color: #86C232;
+		border-color: #86C232;
+		color: #FFFFFF;
+        font-family: system-ui;
+        font-size: 20px;
+		margin-left: 20px;
+		margin-top: 20px;
+		width: 120px;
+        height: 30px;
+        
+}
     </style>
     <script>
         // callAPI function that takes the base and exponent numbers as parameters - testing updates on git
@@ -65,20 +81,23 @@
     </script>
 </head>
 <body>
-    <h1>SF Demand & Supply Mgmt - External hiring</h1>
+    <h1><u> Demand & Supply Mgmt - External hiring</u></h1>
 	<form>
         <label>Browse to upload resume:</label>
-        <input type="text" id="Browse_Resume">
+        <input type="file" id="file" name="file" onchange="document.getElementById('file-path').value = this.value">
+        <input type="text" id="file-path" name="file-path" readonly  style="width:275px;height:25px;">
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callUploadResumeAPI(document.getElementById('Browse_Resume').value)">Submit Resume</button>
+        <button type="button" onclick="callUploadResumeAPI(document.getElementById('file-path').value)">Submit Resume</button>
     </form>
     <form>
-        <label>Send Email To:</label>
-        <input type="text" id="Send_Email">
-        <label>Message:</label>
-        <input type="text" id="Email_message">
+        <p><label>Send Email To:</label>
+        <input type="text" id="Send_Email" style="width:275px;height:20 px;">
+        </p>
+        <p><label>Message:               </label> 
+            <input type="text" id="Email_message" style="width:350px;height:200px;">
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        //<button type="button" onclick="alert(document.getElementById('Email_message').value)">Send Email</button>
+        <button type="button" onclick="alert(document.getElementById('Email_message').value)">Send Email</button>
+        </p>
     </form>
 </body>
 </html>
