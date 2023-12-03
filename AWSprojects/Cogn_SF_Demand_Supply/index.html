@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>To the Power of Math!</title>
+    <title>SF Demand & Supply Mgmt - External hiring</title>
     <!-- Styling for the client UI -->
     <style>
     h1 {
@@ -42,13 +42,13 @@
     </style>
     <script>
         // callAPI function that takes the base and exponent numbers as parameters
-        var callAPI = (base,exponent)=>{
+        var callUploadResumeAPI = (Resume)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"base":base,"exponent":exponent});
+            var raw = JSON.stringify({"Resume":Resume});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -65,14 +65,20 @@
     </script>
 </head>
 <body>
-    <h1>TO THE POWER OF MATH!</h1>
+    <h1>SF Demand & Supply Mgmt - External hiring</h1>
 	<form>
-        <label>Base number:</label>
-        <input type="text" id="base">
-        <label>...to the power of:</label>
-        <input type="text" id="exponent">
+        <label>Browse to upload resume:</label>
+        <input type="text" id="Browse_Resume">
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(document.getElementById('base').value,document.getElementById('exponent').value)">CALCULATE</button>
+        <button type="button" onclick="callUploadResumeAPI(document.getElementById('Browse_Resume').value)">SUBMIT RESUME</button>
+    </form>
+    <form>
+        <label>Send Email To:</label>
+        <input type="text" id="Send_Email">
+        <label>Message:</label>
+        <input type="text" id="Email_message">
+        <!-- set button onClick method to call function we defined passing input values as parameters -->
+        //<button type="button" onclick="alert(document.getElementById('Email_message').value)">SEND MAIL</button>
     </form>
 </body>
 </html>
