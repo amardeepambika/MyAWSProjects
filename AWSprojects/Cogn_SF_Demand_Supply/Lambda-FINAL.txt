@@ -3,7 +3,6 @@ import json
 # import the Python math library
 import math
 
-# This is a test of commiting changes to github ; now with fresh changes second time
 
 # import the AWS SDK (for Python the package name is boto3)
 import boto3
