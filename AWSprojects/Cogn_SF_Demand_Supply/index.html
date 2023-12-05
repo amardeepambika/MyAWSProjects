@@ -82,22 +82,12 @@
 </head>
 <body>
     <h1><u> Demand & Supply Mgmt - External hiring</u></h1>
-	<form>
+    <form>
         <label>Browse to upload resume:</label>
         <input type="file" id="file" name="file" onchange="document.getElementById('file-path').value = this.value">
         <input type="text" id="file-path" name="file-path" readonly  style="width:275px;height:25px;">
         <!-- set button onClick method to call function we defined passing input values as parameters -->
         <button type="button" onclick="callUploadResumeAPI(document.getElementById('file-path').value)">Submit Resume</button>
-    </form>
-    <form>
-        <p><label>Send Email To:</label>
-        <input type="text" id="Send_Email" style="width:275px;height:20 px;">
-        </p>
-        <p><label>Message:               </label> 
-            <input type="text" id="Email_message" style="width:350px;height:200px;">
-        <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="alert(document.getElementById('Email_message').value)">Send Email</button>
-        </p>
     </form>
 </body>
 </html>
