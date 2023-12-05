@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
     <title>SF Demand & Supply Mgmt - External hiring</title>
     <!-- Styling for the client UI -->
     <style>
@@ -33,14 +34,6 @@
 		width: 160px;
         height: 32px;
         align-content: center;
-        }
-	 input {
-        color: #222629;
-        font-family: system-ui;
-        font-size: 20px;
-        margin-left: 20px;
-		margin-top: 20px;
-		width: 100px;
         }
 
     input[type=file] {
@@ -82,12 +75,44 @@
 </head>
 <body>
     <h1><u> Demand & Supply Mgmt - External hiring</u></h1>
-    <form>
-        <label>Browse to upload resume:</label>
+    <form id="uploadfileform">
+        <label for="file">Browse to upload resume for review:</label>
         <input type="file" id="file" name="file" onchange="document.getElementById('file-path').value = this.value">
-        <input type="text" id="file-path" name="file-path" readonly  style="width:275px;height:25px;">
-        <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callUploadResumeAPI(document.getElementById('file-path').value)">Submit Resume</button>
+        <input type="text" id="file-path" name="file-path" value="file-path" readonly>
+        <br>
+        <button type="submit">Upload resume </button>
     </form>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+          var fileInput = document.getElementById('fileInput');
+          var file = fileInput.files[0];
+          var formData = new FormData();
+          formData.append('file', file);
+    
+          callUploadResumeAPI(formData);
+        });
+    
+        function callUploadResumeAPI(formData) {
+          // Replace the API endpoint with your actual API URL
+          var apiUrl = 'https://example.com/upload';
+    
+          fetch(apiUrl, {
+            method: 'POST',
+            body: formData
+          })
+          .then(function(response) {
+            if (response.ok) {
+              console.log('File uploaded successfully.');
+            } else {
+              console.log('Error uploading file.');
+            }
+          })
+          .catch(function(error) {
+            console.log('Error:', error);
+          });
+        }
+      </script>
 </body>
 </html>
