@@ -63,22 +63,27 @@
     <script>
         document.getElementById('uploadForm').addEventListener('submit', function(event) {
           event.preventDefault();
-                    
-          callUploadResumeAPI();
+          
+          var fileInput = document.getElementById('fileInput');
+          var fileName = fileInput.files[0].name;
+          var file = fileInput.files[0];
+          var blob = new Blob([file], { type: file.type });  
+          
+          var formData = new FormData();
+          formData.append('file', blob, file.name);
+          callUploadResumeAPI(formData);
         });
 
-        var callUploadResumeAPI = ()=>{
+        var callUploadResumeAPI = (formData)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
-            // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"abc":"333","fff":"444"});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
                 headers: myHeaders,
-                body: raw,
+                body: formData,
                 redirect: 'follow'
             };
             // make API call with parameters and use promises to get response
