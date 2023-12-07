@@ -2,53 +2,78 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>To the Power of Math!</title>
+    <meta name="viewport" content="width=device-width">
+    <title>SF Demand & Supply Mgmt - External hiring</title>
     <!-- Styling for the client UI -->
     <style>
-    h1 {
-        color: #FFFFFF;
-        font-family: system-ui;
-		margin-left: 20px;
-        }
-	body {
-        background-color: #222629;
-        }
-    label {
-        color: #86C232;
-        font-family: system-ui;
-        font-size: 20px;
-        margin-left: 20px;
-		margin-top: 20px;
-        }
-     button {
-        background-color: #86C232;
-		border-color: #86C232;
-		color: #FFFFFF;
-        font-family: system-ui;
-        font-size: 20px;
-		font-weight: bold;
-        margin-left: 30px;
-		margin-top: 20px;
-		width: 140px;
-        }
-	 input {
-        color: #222629;
-        font-family: system-ui;
-        font-size: 20px;
-        margin-left: 10px;
-		margin-top: 20px;
-		width: 100px;
-        }
+        h1 {
+            color: #FFFFFF;
+            font-family: system-ui;
+            margin-left: 20px;
+            text-align: center;
+            }
+      body {
+            background-color: #222629;
+            }
+        label {
+            color: #86C232;
+            font-family: system-ui;
+            font-size: 20px;
+            margin-left: 20px;
+            margin-top: 20px;
+            }
+        button {
+            background-color: #86C232;
+            border-color: #86C232;
+            color: #FFFFFF;
+            font-family: system-ui;
+            font-size: 20px;
+            text-align: center;
+            margin-left: 20px;
+            margin-top: 20px;
+            width: 160px;
+            height: 32px;
+            align-content: center;
+            }
+
+        input[type=file] {
+            background-color: #86C232;
+            border-color: #86C232;
+            color: #FFFFFF;
+            font-family: system-ui;
+            font-size: 20px;
+            margin-left: 20px;
+            margin-top: 20px;
+            width: 120px;
+            height: 30px;
+            }
     </style>
+   
+</head>
+<body>
+    <h1><u> Demand & Supply Mgmt - External hiring</u></h1>
+    <form id="uploadForm">
+        <label >Browse to upload resume for review:</label>
+        <input type="file" id="fileInput" onchange="document.getElementById('file-path').value = this.value">
+        <input type="text" id="file-path" value="file-path" readonly>
+        <br>
+        <button type="submit">Upload resume </button>
+    </form>
+
     <script>
-        // callAPI function that takes the base and exponent numbers as parameters
-        var callAPI = (base,exponent)=>{
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+                    
+          callUploadResumeAPI();
+        });
+
+        var callUploadResumeAPI = ()=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"base":base,"exponent":exponent});
+            var raw = JSON.stringify({"aaa":"333","abc":"444"});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -62,17 +87,8 @@
             .then(result => alert(JSON.parse(result).body))
             .catch(error => console.log('error', error));
         }
-    </script>
-</head>
-<body>
-    <h1>TO THE POWER OF MATH!</h1>
-	<form>
-        <label>Base number:</label>
-        <input type="text" id="base">
-        <label>...to the power of:</label>
-        <input type="text" id="exponent">
-        <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(document.getElementById('base').value,document.getElementById('exponent').value)">CALCULATE</button>
-    </form>
+    
+       
+      </script>
 </body>
 </html>
