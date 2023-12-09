@@ -70,34 +70,39 @@
           //var blob = new Blob([file], { type: file.type });  
           
           var formData = new FormData();
-          formData.append('file', file, fileName);
+          formData.append('file', file, file.name);
           
           //formData.append('file', blob, file.name);
+          
+          callUploadResumeAPI(formData);
+        });
+
+        var callUploadResumeAPI = (formData)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "multipart/form-data");
 
             // create a JSON object with parameters for API call and store in a variable
-            // x= {"a": "a", "body": "b", "c": "c"};
-            //var raw = JSON.stringify(x);
+             x= {"a": "a", "body": "b", "c": "c"};
+            var raw = JSON.stringify(x);
 
             //var raw = JSON.stringify(formData);
+
             var requestOptions = {
-                method: 'PUT',
+                method: 'POST',
                 headers: myHeaders,
-                body: formData, //raw,
+                body: raw, //raw,
                 redirect: 'follow'
             };
-            
-            var targetpath = "https://qixd8eqw9e.execute-api.us-east-1.amazonaws.com/dev" + "/cogn-sf-ds-resumes/" + fileName;
             // make API call with parameters and use promises to get response
-            fetch(targetpath, requestOptions)
+            fetch("https://qdkt8f99gf.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
                 .then(response => response.text())
                 .then(result => alert(JSON.parse(result).body))
                 .catch(error => console.log('error', error));
-          });
+            }
     
+       
       </script>
 </body>
 </html>
