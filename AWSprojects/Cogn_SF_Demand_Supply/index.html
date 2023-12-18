@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>SF Demand & Supply Mgmt - External hiring</title>
-    <!-- Styling for the client UI -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Styling for the client UI 
     <style>
         h1 {
             color: #FFFFFF;
@@ -47,7 +48,7 @@
             width: 120px;
             height: 30px;
             }
-    </style>
+    </style> -->
    
 </head>
 <body>
@@ -90,11 +91,15 @@
                 redirect: 'follow'
             };
             
-            var targetpath = "https://qixd8eqw9e.execute-api.us-east-1.amazonaws.com/dev" + "/cogn-sf-ds-resumes/" + fileName;
+            var apigatewayendpoint = "https://qixd8eqw9e.execute-api.us-east-1.amazonaws.com/dev";
+            var s3buketname = "/cogn-sf-ds-resumes";
+            var targetpath = apigatewayendpoint + s3buketname + "/" + fileName;
             // make API call with parameters and use promises to get response
             fetch(targetpath, requestOptions)
                 .then(response => response.text())
                // .then(result => alert(JSON.parse(result).body))
+                .then(result => alert("done"))
+
                 .catch(error => console.log('error', error));
           });
     

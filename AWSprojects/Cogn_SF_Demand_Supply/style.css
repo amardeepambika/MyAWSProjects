@@ -1,0 +1,47 @@
+/* FILEPATH: /D:/TechTrainings/My_Projects-aws,py,js,sql/Projects_on_git/AWSprojects/Cogn_SF_Demand_Supply/style.css */
+/* BEGIN: be15d9bcejpp */
+h1 {
+    color: #FFFFFF;
+    font-family: system-ui;
+    margin-left: 20px;
+    text-align: center;
+}
+
+body {
+    background-color: #222629;
+}
+
+label {
+    color: #86C232;
+    font-family: system-ui;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #86C232;
+    border-color: #86C232;
+    color: #FFFFFF;
+    font-family: system-ui;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 160px;
+    height: 32px;
+    align-content: center;
+}
+
+input[type=file] {
+    background-color: #86C232;
+    border-color: #86C232;
+    color: #FFFFFF;
+    font-family: system-ui;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 120px;
+    height: 30px;
+}
+/* END: be15d9bcejpp */

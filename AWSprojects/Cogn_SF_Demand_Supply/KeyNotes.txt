@@ -1,0 +1,6 @@
+Resume upload endpoint in S3: 
+http://cogn-sf-ds-code-bucket.s3-website-us-east-1.amazonaws.com/AWSprojects/Cogn_SF_Demand_Supply/
+
+APi-GATEWAY endpoint- 
+https://qixd8eqw9e.execute-api.us-east-1.amazonaws.com/dev
+
